@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <link rel="stylesheet" href="{% static '/css/catalog/item.css' %}">
+	<main class="item">
+		<div class="item-content">
+			<div class="left-block">
+				{% if item.image %}
+					<img src="{{ item.image.url }}" alt="item" class="item-img">
+				{% endif %}
+				<p class="about-item"><b>Описание:</b> {{ item.description }}</p>
+			</div>
+			<div class="item-info">
+				<h1 class="item-name">{{ item.name }}</h1>
+				<p class="category">{{ item.get_category_display }}</p>
+				<div class="rating">
+					<div class="stars">
+						<img src="{% static '/imgs/catalog/star.svg' %}" class="star">
+						<img src="{% static '/imgs/catalog/star.svg' %}" class="star">
+						<img src="{% static '/imgs/catalog/star.svg' %}" class="star">
+						<img src="{% static '/imgs/catalog/star.svg' %}" class="star">
+						<img src="{% static '/imgs/catalog/star.svg' %}" class="star">
+					</div>
+						<p class="count-feedback">635</p>
+					</div>
+					<p class="price">{{ item.price }}₽</p>
+					<div class="buy-item">
+						<div class="count-item" style="display:none" data-id_of_count="{{ item.id }}.plus_minus_div">
+							<button class="input update-cart" data-type_of_button="plus_minus" data-id_of_count="{{ item.id }}.minus" data-action="remove" data-product="{{ item.id }}" type="button" value="-">-</button>
+							<button class="input" data-id_of_count="{{ item.id }}.count" type="text">0</button>
+							<button class="input update-cart" data-type_of_button="plus_minus" data-id_of_count="{{ item.id }}.plus" data-action="add" data-product="{{ item.id }}" type="button" value="+">+</button>
+						</div>
+						<button class="btn-buy update-cart" style="display:block" data-type_of_button="add_to_chart" data-id_of_count="{{ item.id }}.add" data-action="add" data-product="{{ item.id }}">В корзину</button>
+					</div>
+					<div class="feedbacks">
+						<p class="feedback-title">Отзывы</p>
+						<div class="feedback-items">
+							<div class="feedback-item">
+								<div class="user-ino">
+									<p class="feedback-username">Сергей</p>
+									<div class="user-rating">
+										<img src="{% static '/imgs/catalog/star.svg' %}" class="star">
+										<img src="{% static '/imgs/catalog/star.svg' %}" class="star">
+										<img src="{% static '/imgs/catalog/star.svg' %}" class="star">
+										<img src="{% static '/imgs/catalog/star.svg' %}" class="star">
+										<img src="{% static '/imgs/catalog/star.svg' %}" class="star">
+									</div>
+									<p class="user-feedback-text">Булочки обладают приятным ароматом и нежным вкусом.Булочки обладают приятным ароматом и нежным вкусом.Булочки обладают приятным ароматом и нежным вкусом.Булочки обладают приятным ароматом и нежным вкусом.Булочки обладают приятным ароматом и нежным вкусом.</p>
+								</div>
+							</div>
+							<div class="feedback-item">
+								<div class="user-ino">
+									<p class="feedback-username">Сергей</p>
+									<div class="user-rating">
+										<img src="{% static '/imgs/catalog/star.svg' %}" class="star">
+										<img src="{% static '/imgs/catalog/star.svg' %}" class="star">
+										<img src="{% static '/imgs/catalog/star.svg' %}" class="star">
+										<img src="{% static '/imgs/catalog/star.svg' %}" class="star">
+										<img src="{% static '/imgs/catalog/star.svg' %}" class="star">
+									</div>
+									<p class="user-feedback-text">Булочки обладают приятным ароматом и нежным вкусом.Булочки обладают приятным ароматом и нежным вкусом.Булочки обладают приятным ароматом и нежным вкусом.Булочки обладают приятным ароматом и нежным вкусом.Булочки обладают приятным ароматом и нежным вкусом.</p>
+								</div>
+							</div>
+							<div class="feedback-item">
+								<div class="user-ino">
+									<p class="feedback-username">Сергей</p>
+									<div class="user-rating">
+										<img src="{% static '/imgs/catalog/star.svg' %}" class="star">
+										<img src="{% static '/imgs/catalog/star.svg' %}" class="star">
+										<img src="{% static '/imgs/catalog/star.svg' %}" class="star">
+										<img src="{% static '/imgs/catalog/star.svg' %}" class="star">
+										<img src="{% static '/imgs/catalog/star.svg' %}" class="star">
+									</div>
+								</div>
+								<p class="user-feedback-text">Булочки обладают приятным ароматом и нежным вкусом.Булочки обладают приятным ароматом и нежным вкусом.Булочки обладают приятным ароматом и нежным вкусом.Булочки обладают приятным ароматом и нежным вкусом.Булочки обладают приятным ароматом и нежным вкусом.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<script src="{% static '/js/change_add_to_cart.js' %}"></script>
+	<script src="{% static '/js/cart_add_delete.js' %}"></script>
+{% endblock %}
